@@ -1,0 +1,8 @@
+.navbar {
+    width:100vw;
+    height: clamp(50px, 7vh, 120px);
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    background-color: var(--primary-color);
+}
