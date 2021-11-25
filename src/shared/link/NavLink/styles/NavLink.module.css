@@ -1,0 +1,54 @@
+.navlink {
+    background-color: wheat;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    height: clamp(2vh, 50px, 300px);
+    text-decoration: none;
+    color: indigo
+}
+
+.navlink_active{
+    background-color: tomato;
+    animation: switchActiveOn 0.3s;
+}
+
+@keyframes switchActiveOn {
+    0% {
+        background-color: wheat;
+        pointer-events: none;
+    }
+    80% {
+
+        background-color: tomato;
+    }
+    100% {
+        pointer-events:all;
+    }
+}
+
+.navlink_simple{
+    animation: switchActiveOff 0.3s;
+    background-color: wheat;
+}
+
+@keyframes switchActiveOff {
+    0% {
+        background-color: tomato;
+        pointer-events: none;
+    }
+    80% {
+        background-color: wheat;
+    }
+    100% {
+        pointer-events:all;
+    }
+}
+
+.navlink:visited {
+    color: indigo
+}
+
+.navlink:hover {
+    background-color: cornflowerblue;
+}

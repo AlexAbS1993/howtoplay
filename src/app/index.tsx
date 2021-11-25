@@ -1,10 +1,12 @@
 import { withProviders } from './providers'
-import React from 'react';
+import {Routes, Route} from 'react-router-dom'
 
 function App() {
   return (
     <>
-      Привет
+    <Routes>
+        <Route path="/" />
+    </Routes>
     </>
   );
 }
