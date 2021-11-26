@@ -6,12 +6,10 @@ function App() {
   return (
     <>
     <Routes>
-        <Route path="/Main" element={<Home />}/>
+        <Route path="/" element={<Home />}/>
     </Routes>
     </>
   );
 }
-
-
 
 export default withProviders(App)

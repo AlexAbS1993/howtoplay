@@ -1,0 +1,11 @@
+.keyvalueparagraph {
+    padding: 1em 0em;
+    font-size: 1em;
+}
+
+.keyvalueparagraph_key{
+    font-weight: 600;
+}
+.keyvalueparagraph_value {
+    font-weight: 400
+}
