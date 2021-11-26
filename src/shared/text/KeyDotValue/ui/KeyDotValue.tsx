@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import styles from '../styles.KeyDotValue.module.css'
+import styles from '../styles/KeyDotValue.module.css'
 
 type KeyDotValueType = {
     title: string,

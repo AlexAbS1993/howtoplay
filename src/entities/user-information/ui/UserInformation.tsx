@@ -1,7 +1,7 @@
 import { useStore } from 'effector-react'
 import { FC, useEffect } from 'react'
 import { KeyDotValue } from '../../../shared/text/KeyDotValue'
-import { getInformationAboutUserFX } from '../api/getInformation.API'
+import { fakeGetInformationFX, getInformationAboutUserFX } from '../api/getInformation.API'
 import {$UserInformationGetStatus} from '../model/UserInformationData'
 
 type UserInformationPropsType = {
@@ -11,7 +11,7 @@ type UserInformationPropsType = {
 export const UserInformation:FC<UserInformationPropsType> = ({id}) => {
     let {loading, error, data} = useStore($UserInformationGetStatus)
     useEffect(() => {
-        getInformationAboutUserFX({
+        fakeGetInformationFX({
             url: 'test',
             id: id
         })
@@ -27,8 +27,8 @@ export const UserInformation:FC<UserInformationPropsType> = ({id}) => {
             { 
             data &&  data.map((element) => {
                     return <KeyDotValue 
-                    title={element.title} 
-                    value={''}/>
+                    title={''} 
+                    value={element}/>
                 })
             }
         </>
