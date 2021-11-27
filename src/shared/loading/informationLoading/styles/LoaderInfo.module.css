@@ -1,0 +1,31 @@
+.dot {
+    display: inline-block;
+    opacity: 0;
+    animation: appearance 1.2s calc(0.2s * var(--id)) infinite;
+    transform: translateY(0px);
+    font-weight: 800;
+    margin-right: 3px;
+}
+
+@keyframes appearance {
+    0% {
+        opacity: 0;
+        transform: translateY(15px)
+        
+    }
+    5% {
+        opacity: 1;
+        transform: translateY(15px)
+    }
+    40%{
+        transform: translateY(0px)
+    }
+    85%{
+        opacity: 1;
+        transform: translateY(0px)
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 0;
+    }
+}

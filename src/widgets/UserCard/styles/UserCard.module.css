@@ -1,0 +1,20 @@
+.userinfo {
+    width: 100%;
+    display: grid;
+    grid-template-columns: clamp(100px, 15vw, 200px) auto;
+    grid-template-rows: clamp(100px, 35vh, 400px) clamp(50px, 10vh, 200px) auto;
+    gap: 10px;
+}
+
+.userinfo_photo{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+.userinfo_info {
+    grid-row: 1/4;
+    grid-column: 2/3;
+}
+.userinfo_buttons {
+    grid-row: 2/3;
+    grid-column: 1/2;
+}

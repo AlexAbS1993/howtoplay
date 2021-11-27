@@ -1,0 +1,9 @@
+.home {
+    display: grid;
+    justify-content: center;
+}
+
+.home_main {
+    margin-top: clamp(20px, 5vh, 100px);
+    width: clamp(300px, 85vw, 1300px);
+}

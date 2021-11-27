@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import styles from '../styles/UserCard.module.css'
+import styles from '../styles/UserPhoto.module.css'
 
 type UserPhotoType = {
     photo: string,

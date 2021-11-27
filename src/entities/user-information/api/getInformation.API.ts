@@ -23,7 +23,7 @@ export const fakeGetInformationFX = createEffect<getUserInformationType, any[], 
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve([
-                        10, 20, 'hello'
+                        'my name is Alex', 28, 'hello'
                     ]
                 )
             }, 2000)
