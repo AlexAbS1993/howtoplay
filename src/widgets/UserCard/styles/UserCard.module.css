@@ -1,8 +1,8 @@
 .userinfo {
     width: 100%;
     display: grid;
-    grid-template-columns: clamp(100px, 15vw, 200px) auto;
-    grid-template-rows: clamp(100px, 35vh, 400px) clamp(50px, 10vh, 200px) auto;
+    grid-template-columns: clamp(140px, 15vw, 200px) auto;
+    grid-template-rows: clamp(20vh, 186px, 30vh) clamp(50px, 10vh, 200px) auto;
     gap: 10px;
 }
 
@@ -17,4 +17,24 @@
 .userinfo_buttons {
     grid-row: 2/3;
     grid-column: 1/2;
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    align-items: center;
+    justify-items: center;
+}
+
+@media screen and (max-width: 500px) {
+    .userinfo {
+        grid-auto-flow: row;
+        grid-template-columns: 1fr;
+        grid-template-rows: clamp(20vh, 186px, 30vh) clamp(50px, 10vh, 200px) auto;
+    }
+    .userinfo_info {
+        grid-row: 3/4;
+        grid-column: 1/2;
+    }
+    .userinfo_buttons {
+        grid-row: 2/3;
+        grid-column: 1/2;
+    }
 }

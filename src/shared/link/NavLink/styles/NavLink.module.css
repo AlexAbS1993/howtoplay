@@ -6,7 +6,7 @@
     height: clamp(2vh, 50px, 300px);
     text-decoration: none;
     color: indigo;
-    padding: 0em clamp(20px, 2em, 100px);
+    padding: 0em clamp(22px, 5vw, 100px);
 }
 
 .navlink_active{

@@ -1,0 +1,28 @@
+.circlebutton {
+    border-radius: 50%;
+    border: 1px gray;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    width: clamp(4vw, 45px, 80px);
+    height: clamp(4vw, 45px, 80px);
+    object-fit: contain;
+    cursor: pointer;
+    background-color: var(--secondary-color);
+}
+
+.circlebutton:hover {
+    box-shadow: 0px 0px 15px 1px gray;
+    transition: 0.3s ease;
+    background-color: var(--primary-color);
+}
+.circlebutton:active {
+    box-shadow: 0px 0px 15px 1px gray;
+    transition: 0.3s ease;
+    background-color: var(--hover-color)
+}
+
+.circlebutton img {
+    width: 60%;
+    height: 100%;
+}

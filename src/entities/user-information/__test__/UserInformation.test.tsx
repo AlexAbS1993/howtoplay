@@ -1,12 +1,13 @@
 import {UserInformation} from '../index'
-import {getInformationAboutUserFX} from '../api/getInformation.API'
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom'
-import { allSettled, fork } from 'effector';
 
 const testFakeResponse = {
     data: [
-        '10', '!!', 'hello'
+        {
+            value: 'hello',
+            title: 'Greetings'
+        }
     ]
 }
 
