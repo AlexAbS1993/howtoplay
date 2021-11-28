@@ -4,7 +4,7 @@ import { $changedData } from ".."
 import { TitleInput } from "../../../entities/KeyDotInput"
 import { ConfirmButton } from "../../../shared/buttons/confirmButton"
 import images from "../../../shared/images"
-import { $changeRequestStatus, FAKEsendChangedDataFX, setData, setInitialData } from "../model/changeUser"
+import { $changeRequestStatus, FAKEsendChangedDataFX, sendChangedDataEmmiter, setData, setInitialData } from "../model/changeUser"
 
 
 
@@ -38,9 +38,6 @@ export const UserInformationWithChangableLogin:FC<UserInformationWithChangableLo
           {
               data.map(e => {
                 let disabled = changable.some(field => field !== e.title) || changeRequestStatus
-                if (e.title === "Имя"){
-                    console.log(disabled, changeRequestStatus)
-                }
                 return (
                     <TitleInput 
                     data-testid='input'
@@ -54,8 +51,7 @@ export const UserInformationWithChangableLogin:FC<UserInformationWithChangableLo
               })
           } 
           <ConfirmButton svg={images.confirm} disabled={changeRequestStatus} clickHandler={() => {
-              console.log(inputData)
-              FAKEsendChangedDataFX(inputData)
+              sendChangedDataEmmiter(inputData)
           }} wait={images.wait}/>
         </>
     )

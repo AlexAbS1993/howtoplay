@@ -1,4 +1,4 @@
-import { createEffect, createEvent, createStore, sample} from "effector";
+import { createEffect, createEvent, createStore, forward, sample} from "effector";
 import { fakeGetInformationFX, resetEvent } from "../../../entities/user-information";
 
 export const setChangingNow= createEvent() 
@@ -21,12 +21,15 @@ export const $changedData = createStore<any>({})
 .on(setInitialData, (state, payload) => ({...payload}))
 
 export const sendChangedDataFX = createEffect<{[key: string]: string}, any>(async () => { })
-export const FAKEsendChangedDataFX = createEffect<any, any>(async (data: any) => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve("Успех")
-        }, 2500)
-    })
+export const FAKEsendChangedDataFX = createEffect<any, any>({
+    sid: "FAKE / sendChanged",
+    handler: async () => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("Успех")
+            }, 2500)
+        })
+    }
 })
 
 
@@ -36,6 +39,13 @@ export const changePendingEvent = createEvent()
 export const changeExactPendingEvent = createEvent<boolean>()
 export const $changeRequestStatus = createStore<boolean>(false).on(changePendingEvent, (state, payload) => !state)
 .on(changeExactPendingEvent, (state, payload) => payload)
+
+export const sendChangedDataEmmiter = createEvent<any>()
+
+forward({
+    from: sendChangedDataEmmiter,
+    to: FAKEsendChangedDataFX
+})
 
 FAKEsendChangedDataFX.pending.watch((state, payload) => {
     if (state === true){
