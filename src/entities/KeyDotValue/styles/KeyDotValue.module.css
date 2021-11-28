@@ -1,5 +1,5 @@
 .keyvalueparagraph {
-    padding: 1em 0em;
+    padding: var(--paragraph-padding);
     font-size: 1em;
 }
 

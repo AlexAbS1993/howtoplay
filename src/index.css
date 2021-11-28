@@ -7,6 +7,8 @@
   --text-color: black;
   /* Fonts */
   --font-family-primal: 'Montserrat', sans-serif;
+  /* Padding and Margin */
+  --paragraph-padding: 1em 0em;
 }
 
 * {

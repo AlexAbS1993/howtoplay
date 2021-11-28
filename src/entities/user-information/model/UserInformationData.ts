@@ -1,5 +1,6 @@
 import { combine, createEvent, createStore } from "effector"
-import { fakeGetInformationFX, getInformationAboutUserFX } from "../api/getInformation.API";
+import { getInformationAboutUserFX } from "../api/getInformation.API";
+import {fakeGetInformationFX} from '../api/__fake__'
 
 type UserInformationDataType = {
     value: string,
@@ -9,9 +10,10 @@ type UserInformationDataType = {
 export const config = {
     changableFields: ["Имя"]
 }
-
-const $fetchError = createStore<string>('')
+export const resetEvent = createEvent()
+export const $fetchError = createStore<string>('')
 const $UserInformationData = createStore<UserInformationDataType>([])
+.reset(resetEvent)
 export const $UserInformationGetStatus = combine({
     loading: process.env.NODE_ENV === 'development' ? fakeGetInformationFX.pending : getInformationAboutUserFX.pending ,
     error: $fetchError,
@@ -25,12 +27,8 @@ $UserInformationData.on(getInformationAboutUserFX.doneData, (state, payload) => 
     return payload
 })
 
-let errorEvent = createEvent<string>()
+export let errorEvent = createEvent<string>()
 
-fakeGetInformationFX.fail.watch((payload) => {
-    let data = payload.error.toString()
-    errorEvent(data)
-})
 getInformationAboutUserFX.fail.watch((payload) => {
     let data = payload.error.toString()
     errorEvent(data)

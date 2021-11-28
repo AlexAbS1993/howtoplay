@@ -12,32 +12,8 @@ type getUserInformationType = {
     options?:any
 }
 
-export const getInformationAboutUserFX = createEffect<getUserInformationType, any[], Error>({
+export const getInformationAboutUserFX = createEffect<getUserInformationType, {title: string, value: string}[], Error>({
     handler: async ({url, id, options}) => {
         return await getInformationAPI(url, id, options)
-    }
-})
-
-export const fakeGetInformationFX = createEffect<getUserInformationType, any[], Error>({
-    handler: async({url, id}) => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve([
-                        {
-                            title: 'Имя',
-                            value: "Alex"
-                        },
-                        {
-                            title: 'Сообщений на форуме',
-                            value: "12"
-                        },
-                        {
-                            title: 'Знаток игр',
-                            value: "4"
-                        }
-                    ]
-                )
-            }, 2000)
-        })
     }
 })

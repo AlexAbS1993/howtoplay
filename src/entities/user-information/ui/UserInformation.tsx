@@ -1,6 +1,5 @@
 import { FC} from 'react'
 import { KeyDotValue } from '../../../entities/KeyDotValue'
-import {config} from '../model/UserInformationData'
 
 
 type UserInformationPropsType = {
@@ -8,11 +7,10 @@ type UserInformationPropsType = {
     data: {
         value: string,
         title: string
-    }[],
-    isChanging?: boolean
+    }[]
 }
 
-export const UserInformation:FC<UserInformationPropsType> = ({id, data, isChanging}) => {
+export const UserInformation:FC<UserInformationPropsType> = ({id, data}) => {
     return (
         <>
             { 
@@ -21,7 +19,6 @@ export const UserInformation:FC<UserInformationPropsType> = ({id, data, isChangi
                     key={element.title}
                     title={element.title} 
                     value={element.value}
-                    couldChange={config.changableFields.some(e => e === element.title) && (isChanging ? true : false)}
                     />
                 })
             }

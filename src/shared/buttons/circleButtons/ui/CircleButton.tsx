@@ -1,20 +1,24 @@
 import { FC } from 'react'
 import {Event} from 'effector'
 import styles from '../styles/CircleButton.module.css'
-type CircleButtonType = {
+export type CircleButtonType = {
     icon: string,
-    clickHandler: Event<void>
+    clickHandler: Event<void>,
+    disabled: boolean
 }
 
 export const CircleButton:FC<CircleButtonType> = ({
     icon,
-    clickHandler
+    clickHandler,
+    disabled
 }) => {
     return (
         <button className={styles.circlebutton}
+        data-testid='circlebutton'
         onClick={() => {
             return clickHandler()
         }}
+        disabled={disabled}
         >
             <img src={icon} alt="иконка меню"/>
         </button>

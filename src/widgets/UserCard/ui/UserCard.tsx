@@ -7,8 +7,9 @@ import { useStore } from 'effector-react'
 import { InfoLoader } from '../../../shared/loading/informationLoading'
 import { icons } from '../model/icons'
 import { CircleButton } from '../../../shared/buttons/circleButtons'
-import { $isChangingNow, setChangingNow } from '../../../featured/changeLogin'
-
+import { $isChangingNow, UserInformationWithChangableLogin } from '../../../featured/changeUserInfo'
+import { handlers } from '../model/handlers'
+import { config } from '../../../entities/user-information/model/UserInformationData'
 
 type UserCardPropsType = {
     id: string
@@ -16,6 +17,7 @@ type UserCardPropsType = {
 
 export const UserCard:FC<UserCardPropsType> = ({id}) => {
     const {loading, error, data} = useStore($UserInformationGetStatus)
+    console.log(data)
     const isChanging = useStore($isChangingNow)
     useEffect(() => {
         process.env.NODE_ENV === 'development' ? 
@@ -42,13 +44,15 @@ export const UserCard:FC<UserCardPropsType> = ({id}) => {
                     error && <div> {error} </div>
                 }
                 {
-                    data && <UserInformation id='1' data={data} isChanging={isChanging}/>
+                    data && (isChanging ? <UserInformationWithChangableLogin id={'1'} data={data} changable={config.changableFields}/>
+                     : 
+                     <UserInformation id='1' data={data}/>)
                 }
             </div>
             <div className={styles.userinfo_buttons}>
                 {
-                    icons.map(e => {
-                        return <CircleButton icon={e} clickHandler={setChangingNow} key={e}/>
+                    icons.map((e, i) => {
+                        return <CircleButton icon={e} clickHandler={handlers[i]} key={e} disabled={loading}/>
                     })
                 }
             </div>
