@@ -16,8 +16,8 @@ export const CircleButton:FC<CircleButtonType> = ({
         <button className={styles.circlebutton}
         data-testid='circlebutton'
         onClick={() => {
-            return clickHandler()
-        }}
+            clickHandler()
+        }} 
         disabled={disabled}
         >
             <img src={icon} alt="иконка меню"/>

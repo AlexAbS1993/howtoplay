@@ -1,8 +1,10 @@
 import { setChangingNow } from "../../../featured/changeUserInfo";
-import {Event} from 'effector'
+import { fakeInitialGetInformationEvent, initialGetInformationEvent } from "../../../entities/user-information";
+import { Event } from "effector";
 
-export const handlers: Event<void>[] = [
-    setChangingNow, 
-    (() => {}) as Event<void>, 
-    (() => {}) as Event<void>
+export const handlers: (Event<void>)[] = [
+    setChangingNow,  
+    (() => {})  as Event<void>,
+    // process.env.NODE_ENV === 'development' ? fakeInitialGetInformationEvent : initialGetInformationEvent,
+    fakeInitialGetInformationEvent
 ]

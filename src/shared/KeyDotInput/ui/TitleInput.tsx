@@ -1,5 +1,5 @@
 import React, { FC } from "react"
-import { Title } from "../../../shared/text/Title"
+import { Title } from "../../text/Title"
 import styles from '../styles/TitleInput.module.css'
 
 type TitelInputPropsType = {

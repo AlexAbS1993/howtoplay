@@ -1,10 +1,12 @@
-import { createEffect} from "effector"
+import { createEffect, createEvent } from "effector"
 
 type getUserInformationType = {
     url: string,
     id: string,
     options?:any
 }
+
+export const fakeInitialGetInformationEvent = createEvent<void>()
 
 export const fakeGetInformationFX = createEffect<getUserInformationType, any[], Error>({
     handler: async({url, id}) => {

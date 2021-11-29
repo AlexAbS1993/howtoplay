@@ -1,5 +1,5 @@
 import { FC} from 'react'
-import { KeyDotValue } from '../../../entities/KeyDotValue'
+import { KeyDotValue } from '../../../shared/KeyDotValue'
 
 
 type UserInformationPropsType = {

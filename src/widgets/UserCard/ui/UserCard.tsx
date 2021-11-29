@@ -10,6 +10,7 @@ import { CircleButton } from '../../../shared/buttons/circleButtons'
 import { $isChangingNow, UserInformationWithChangableLogin } from '../../../featured/changeUserInfo'
 import { handlers } from '../model/handlers'
 import { config } from '../../../entities/user-information/model/UserInformationData'
+import { $fakeCurrentUserID } from '../model/__fake__'
 
 type UserCardPropsType = {
     id: string
@@ -17,7 +18,7 @@ type UserCardPropsType = {
 
 export const UserCard:FC<UserCardPropsType> = ({id}) => {
     const {loading, error, data} = useStore($UserInformationGetStatus)
-    console.log(data)
+    const currentUserID = useStore($fakeCurrentUserID)
     const isChanging = useStore($isChangingNow)
     useEffect(() => {
         process.env.NODE_ENV === 'development' ? 

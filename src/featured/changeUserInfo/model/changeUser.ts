@@ -54,7 +54,6 @@ FAKEsendChangedDataFX.pending.watch((state, payload) => {
 })
 
 FAKEsendChangedDataFX.doneData.watch(() => {
-    changePendingEvent()
     resetEvent()
     setChangingNow()
 })

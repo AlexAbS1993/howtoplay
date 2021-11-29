@@ -22,12 +22,8 @@ const fakeChangable = ['Имя']
 
 describe('Модуль UserChangedInformation позволяет изменить имя пользователя', () => {
     let i = "0"
-    let page
     beforeEach(() => {
-        page = render(<UserInformationWithChangableLogin id={i} data={fakeData} changable={fakeChangable} />)
-    })
-    afterEach(() => {
-        page = null
+       render(<UserInformationWithChangableLogin id={i} data={fakeData} changable={fakeChangable} />)
     })
     test("Отрисовывается компонент с инпутами", () => {
         console.log(`----1----`)

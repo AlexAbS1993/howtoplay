@@ -1,7 +1,7 @@
 import { useStore } from "effector-react"
 import { FC, useLayoutEffect } from "react"
 import { $changedData } from ".."
-import { TitleInput } from "../../../entities/KeyDotInput"
+import { TitleInput } from "../../../shared/KeyDotInput"
 import { ConfirmButton } from "../../../shared/buttons/confirmButton"
 import images from "../../../shared/images"
 import { $changeRequestStatus, FAKEsendChangedDataFX, sendChangedDataEmmiter, setData, setInitialData } from "../model/changeUser"
